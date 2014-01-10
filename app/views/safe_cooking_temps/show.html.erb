@@ -1,0 +1,24 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Group:</strong>
+  <%= @safe_cooking_temp.group %>
+</p>
+
+<p>
+  <strong>Type:</strong>
+  <%= @safe_cooking_temp.meat_type %>
+</p>
+
+<p>
+  <strong>Temp:</strong>
+  <%= @safe_cooking_temp.temp %>
+</p>
+
+<p>
+  <strong>Note:</strong>
+  <%= @safe_cooking_temp.note %>
+</p>
+
+<%= link_to 'Edit', edit_safe_cooking_temp_path(@safe_cooking_temp) %> |
+<%= link_to 'Back', safe_cooking_temps_path %>

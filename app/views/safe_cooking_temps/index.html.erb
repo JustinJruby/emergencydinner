@@ -1,0 +1,33 @@
+<h1>Listing safe_cooking_temps</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Group</th>
+      <th>Type</th>
+      <th>Temp</th>
+      <th>Note</th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @safe_cooking_temps.each do |safe_cooking_temp| %>
+      <tr>
+        <td><%= safe_cooking_temp.group %></td>
+        <td><%= safe_cooking_temp.meat_type %></td>
+        <td><%= safe_cooking_temp.temp %></td>
+        <td><%= safe_cooking_temp.note %></td>
+        <td><%= link_to 'Show', safe_cooking_temp %></td>
+        <td><%= link_to 'Edit', edit_safe_cooking_temp_path(safe_cooking_temp) %></td>
+        <td><%= link_to 'Destroy', safe_cooking_temp, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Safe cooking temp', new_safe_cooking_temp_path %>

@@ -1,0 +1,48 @@
+
+
+<div class="recipe">
+<% r =  @recipes.sample(1)[0] %>
+<% unless r.nil? %>
+<h4><%= link_to r.title, r.link %></h4>
+<%=link_to r.source, r.link %><br>
+Time: <%= distance_of_time_in_words r.time*60 %><br>
+Time Note: <%=r.time_note%> <br/>
+Critial Ingredients: <%= r.ingredient %><br>
+Tags: <%= r.tag_list %> 
+<% end %>
+</div>
+
+<br>
+<style type="text/css">
+  div.recipe{
+    margin: 10px 10px;
+  
+background-color:#eee;
+   border: 1px solid #888;
+   border-radius:3px;
+ }
+ div.strong{
+  font-weight:bold;
+
+}
+</style>
+<table>
+<% @recipes.each do |recipe| %>
+<tr>
+<class="recipe">
+    <div class="strong"> <%=link_to recipe.title, recipe.link %> - <%=link_to recipe.source, edit_recipe_path(recipe) %></div>
+    <div> <%=link_to recipe.time.to_i.to_s+'(min)', recipe.link %> - <%=link_to 'details',edit_recipe_path(recipe) %></div>
+    <div><%= link_to 'Details ', recipe %>
+	<% if user_signed_in? %>
+        <%= link_to 'Edit', edit_recipe_path(recipe) %>
+        <%= link_to 'Destroy', recipe, method: :delete, data: { confirm: 'Are you sure?' } %>
+	<% end %>
+    </div>
+  </div>
+</tr>   
+ <% end %>
+
+</table>
+<br>
+
+<%= link_to 'New Recipe', new_recipe_path if user_signed_in?%>

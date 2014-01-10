@@ -1,0 +1,31 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>  <%=link_to @recipe.title, @recipe.link %> </strong><br/>
+   <%=link_to @recipe.source, @recipe.link %>
+</p>
+<p>
+  <%= distance_of_time_in_words @recipe.time*60 %><br/>
+  <%= @recipe.time_note %>
+</p>
+<p>
+  <strong>Ingredients :</strong>
+  <%=simple_format  @recipe.ingredient%>
+</p>
+<p>
+<strong>Steps: </strong>
+<%= simple_format(@recipe.steps) %>
+</p>
+<p>
+ <%=  @recipe.tag_list%>
+</p>
+
+</p>
+
+<% if user_signed_in? %>
+<%= link_to 'Edit', edit_recipe_path(@recipe) %> |
+<% end %>
+<%= link_to 'Back', recipes_path %>
+<%= link_to 'Next', @recipe.next %>
+<%= link_to 'PDF', make_path(:id=>@recipe.id) %>
+

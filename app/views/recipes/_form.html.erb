@@ -1,0 +1,60 @@
+<%= form_for(@recipe) do |f| %>
+  <% if @recipe.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@recipe.errors.count, "error") %> prohibited this recipe from being saved:</h2>
+
+      <ul>
+      <% @recipe.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+    <div class="field" >
+      <p>  <%= f.label :pdf_eval ,:class => "checkbox inline" %><br/>: <%= f.text_field :pdf_eval ,:style=>"width: 650px"%>
+      </p>
+      </div>
+  <div class="field">
+  <p>  <%= f.label :title ,:class => "checkbox inline" %>: <%= f.text_field :title %>
+  </p>
+  </div>
+  <div class="field">
+    <%= f.label :slug, :class => "checkbox inline" %>:<%= f.text_field :slug %>
+  </div>
+  <div class="field">
+    <%= f.label :tag_list, :class => "checkbox inline" %>:<%= f.text_field :tag_list %>
+  </div>
+  <div class="field">
+    <%= f.label :link ,:class => "checkbox inline"%>:
+    <%= f.text_field :link %>
+  </div>
+<div class="field">
+  <%= f.label :source ,:class => "checkbox inline"%>:
+  <%= f.text_field :source %>
+</div>
+  <div class="field">
+    <%= f.label :time,:class => "checkbox inline" %> (in minutes):
+    <%= f.text_field :time %>
+  </div>
+  <div class="field">
+    <%= f.label :time_note,:class => "checkbox inline" %>:
+    <%= f.text_field :time_note %>
+  </div>
+  <div class="field">
+    <%= f.label :key_ingredients %>
+    <%= f.text_area :ingredient, :style=>"width: 500px;height:500px"%>
+  </div>
+  <div class="field">
+    <%= f.label :steps %>
+    <%= f.text_area :steps, :size=>"30x10", :style=>"width: 500px;height:500px" %>
+  </div>
+  <div class="field">
+    <%= f.label :pantry, :class=>"checkbox inline" %>:
+    <%= f.check_box :pantry %>
+  </div>
+  <% if user_signed_in? %>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+  <% end %>
+<% end %>

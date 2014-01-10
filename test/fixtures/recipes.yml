@@ -1,0 +1,15 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  title: MyString
+  link: MyString
+  time: MyString
+  ingredient: MyString
+  pantry: false
+
+two:
+  title: MyString
+  link: MyString
+  time: MyString
+  ingredient: MyString
+  pantry: false
