@@ -1,3 +1,5 @@
 == Emergency Dinner
 
 This app creates a PDF of your recipes in a pdf compliant file suitable for printing.
+
+Uses Prawn pdf to actually create the document
